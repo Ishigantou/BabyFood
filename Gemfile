@@ -14,6 +14,7 @@ group :assets do
   gem 'sprockets-rails', github: 'rails/sprockets-rails'
   gem 'sass-rails',   github: 'rails/sass-rails'
   gem 'coffee-rails', github: 'rails/coffee-rails'
+  gem 'haml-rails', github: 'itzki/haml-rails' #fixed scaffold in Rails4
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', platforms: :ruby
@@ -40,3 +41,10 @@ gem 'turbolinks'
 
 # To use debugger
 # gem 'debugger'
+
+group :development do
+  gem 'pry-rails'
+  gem 'rails-erd'
+  gem 'html2haml'
+  gem 'ruby_parser'
+end
