@@ -3,7 +3,8 @@ BabyFood::Application.routes.draw do
   get 'signup' => 'users#new', as: 'signup'
   get 'login' => 'sessions#new', as: 'login'
   get 'logout' => 'sessions#destroy', as: 'logout'
-  resources :users
+  get 'profile' => 'users#edit', as: 'profile'
+  resources :users, only: [:create, :update]
   resources :sessions, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

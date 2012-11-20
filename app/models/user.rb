@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  validates_presence_of :name
-  validates_uniqueness_of :name
-  validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
+  validates :name, presence: true, uniqueness: true
+  validates :password, presence: {on: :create}, confirmation: true
+  validates :baby_birthday, presence: true
   before_save :encrypt_password
 
   def self.authenticate(name, password)
