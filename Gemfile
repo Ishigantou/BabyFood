@@ -15,6 +15,8 @@ group :assets do
   gem 'sass-rails',   github: 'rails/sass-rails'
   gem 'coffee-rails', github: 'rails/coffee-rails'
   gem 'haml-rails', github: 'itzki/haml-rails' #fixed scaffold in Rails4
+  gem 'compass'
+  gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', platforms: :ruby
