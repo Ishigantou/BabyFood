@@ -1,4 +1,6 @@
 BabyFood::Application.routes.draw do
+  resources :recipes
+
   root to: 'users#new'
   get 'signup' => 'users#new', as: 'signup'
   get 'login' => 'sessions#new', as: 'login'

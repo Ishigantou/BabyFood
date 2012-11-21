@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20121120040454) do
+ActiveRecord::Schema.define(version: 20121121214244) do
+
+  create_table "recipes", force: true do |t|
+    t.text     "title"
+    t.text     "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
