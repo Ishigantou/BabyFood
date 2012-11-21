@@ -1,4 +1,6 @@
 BabyFood::Application.routes.draw do
+  resources :categories
+
   resources :recipes
 
   root to: 'users#new'
