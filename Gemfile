@@ -10,13 +10,14 @@ gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_fi
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 gem 'compass'
+gem 'haml-rails', github: 'itzki/haml-rails' #fixed scaffold in Rails4
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sprockets-rails', github: 'rails/sprockets-rails'
   gem 'sass-rails',   github: 'rails/sass-rails'
   gem 'coffee-rails', github: 'rails/coffee-rails'
-  gem 'haml-rails', github: 'itzki/haml-rails' #fixed scaffold in Rails4
   gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
