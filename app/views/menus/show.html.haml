@@ -1,4 +1,4 @@
-%h1 Menus on #{@date}
+%h1 Your Menus on #{@date}
 
 = content_tag_for(:div, @menus) do |menu|
   %h3 Saved at #{menu.created_at.strftime('%Y-%m-%d %H:%M')}

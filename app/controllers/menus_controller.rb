@@ -15,11 +15,11 @@ class MenusController < ApplicationController
   # GET /menus/:year/:month/:day
   def show
     @date = Date.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
-    @menus = Menu.day(@date)
+    @menus = current_user.menus.day(@date)
   end
 
   def create
-    @menu = Menu.new(menu_params)
+    @menu = current_user.menus.build(menu_params)
 
     if @menu.save
       redirect_to @menu.day_path, notice: 'Menu was successfully created.'
@@ -29,7 +29,7 @@ class MenusController < ApplicationController
   end
 
   def update
-    @menu = Menu.find(params[:id])
+    @menu = current_user.menus.find(params[:id])
 
     if @menu.update_attributes(menu_params)
       redirect_to @menu.day_path, notice: 'Menu was successfully updated.'
@@ -41,7 +41,7 @@ class MenusController < ApplicationController
   # DELETE /menus/1
   # DELETE /menus/1.json
   def destroy
-    @menu = Menu.find(params[:id])
+    @menu = current_user.menus.find(params[:id])
     @menu.destroy
 
     respond_to do |format|
