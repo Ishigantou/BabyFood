@@ -1,24 +1,14 @@
-%p#notice= notice
+%h1 Menus on #{@date}
 
-%p
-  %b User:
-  = @menu.user
-%p
-  %b Staple recipe:
-  = @menu.staple_recipe
-%p
-  %b Main recipe:
-  = @menu.main_recipe
-%p
-  %b Side recipe:
-  = @menu.side_recipe
-%p
-  %b Comment:
-  = @menu.comment
-%p
-  %b Photo:
-  = @menu.photo
-
-= link_to 'Edit', edit_menu_path(@menu)
-\|
-= link_to 'Back', menus_path
+= content_tag_for(:div, @menus) do |menu|
+  %h3 Saved at #{menu.created_at.strftime('%Y-%m-%d %H:%M')}
+  .row
+    = content_tag_for(:div, menu.recipes, class: 'span4') do |recipe|
+      .div(style='height:180px; overflow:hidden')
+        = link_to recipe.url do
+          = image_tag recipe.image_url
+      = link_to recipe.title, recipe.url
+  .pull-right
+    = form_for(menu) do |f|
+      = f.text_field :comment, class:'span6', placeholder: 'save this menu with comment.'
+      = f.submit 'Save', class:'btn btn-success save-button'

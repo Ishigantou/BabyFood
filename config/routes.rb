@@ -1,5 +1,9 @@
 BabyFood::Application.routes.draw do
-  resources :menus
+  resources :menus, only: [:create, :update, :destroy]
+  get 'menus/:year/:month/:day' => 'menus#show', as: 'day_menu',
+    year: /\d{4}/, month: /\d{2}/, day: /\d{2}/
+  get 'menus/:year/:month' => 'menus#show', as: 'month_menu',
+    year: /\d{4}/, month: /\d{2}/
 
   resources :categories
 

@@ -1,4 +1,6 @@
 class MenusController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /menus
   # GET /menus.json
   def index
@@ -10,62 +12,29 @@ class MenusController < ApplicationController
     end
   end
 
-  # GET /menus/1
-  # GET /menus/1.json
+  # GET /menus/:year/:month/:day
   def show
-    @menu = Menu.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @menu }
-    end
+    @date = Date.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
+    @menus = Menu.day(@date)
   end
 
-  # GET /menus/new
-  # GET /menus/new.json
-  def new
-    @menu = Menu.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @menu }
-    end
-  end
-
-  # GET /menus/1/edit
-  def edit
-    @menu = Menu.find(params[:id])
-  end
-
-  # POST /menus
-  # POST /menus.json
   def create
     @menu = Menu.new(menu_params)
 
-    respond_to do |format|
-      if @menu.save
-        format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
-        format.json { render json: @menu, status: :created, location: @menu }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @menu.errors, status: :unprocessable_entity }
-      end
+    if @menu.save
+      redirect_to @menu.day_path, notice: 'Menu was successfully created.'
+    else
+      redirect_to :root
     end
   end
 
-  # PATCH/PUT /menus/1
-  # PATCH/PUT /menus/1.json
   def update
     @menu = Menu.find(params[:id])
 
-    respond_to do |format|
-      if @menu.update_attributes(menu_params)
-        format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @menu.errors, status: :unprocessable_entity }
-      end
+    if @menu.update_attributes(menu_params)
+      redirect_to @menu.day_path, notice: 'Menu was successfully updated.'
+    else
+      redirect_to @menu.day_path
     end
   end
 
@@ -86,6 +55,6 @@ class MenusController < ApplicationController
     # Use this method to whitelist the permissible parameters. Example: params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def menu_params
-      params.require(:menu).permit(:user, :staple_recipe_id, :main_recipe_id, :side_recipe_id, :comment, :photo)
+      params.require(:menu).permit(:staple_recipe_id, :main_recipe_id, :side_recipe_id, :comment, :photo)
     end
 end
