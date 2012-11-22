@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
+
 gem 'rails',     github: 'rails/rails'
 gem 'journey',   github: 'rails/journey'
 gem 'arel',      github: 'rails/arel'
 gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
 
-gem 'sqlite3'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
+gem 'compass'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -15,7 +17,6 @@ group :assets do
   gem 'sass-rails',   github: 'rails/sass-rails'
   gem 'coffee-rails', github: 'rails/coffee-rails'
   gem 'haml-rails', github: 'itzki/haml-rails' #fixed scaffold in Rails4
-  gem 'compass'
   gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -45,8 +46,14 @@ gem 'turbolinks'
 # gem 'debugger'
 
 group :development do
+  gem 'sqlite3'
   gem 'pry-rails'
   gem 'rails-erd'
   gem 'html2haml'
   gem 'ruby_parser'
+end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
 end
