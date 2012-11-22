@@ -1,4 +1,10 @@
+# coding: utf-8
 class RecipesController < ApplicationController
+  def top
+    @stage = current_user.try(:baby_stage) || '離乳食 後期（9〜11ヶ月）'
+    @recipes = Recipe.recommended(@stage)
+  end
+
   # GET /recipes
   # GET /recipes.json
   def index

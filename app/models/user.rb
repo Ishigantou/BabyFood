@@ -1,3 +1,4 @@
+# coding: utf-8
 class User < ActiveRecord::Base
   attr_accessor :password
   validates :name, presence: true, uniqueness: true
@@ -11,6 +12,16 @@ class User < ActiveRecord::Base
       user
     else
       nil
+    end
+  end
+
+  def baby_stage
+    if baby_birthday > 6.months.ago.to_date
+      '離乳食 初期（5〜6ヶ月）'
+    elsif baby_birthday > 8.months.ago.to_date
+      '離乳食 中期（7〜8ヶ月）'
+    else
+      '離乳食 後期（9〜11ヶ月）'
     end
   end
 
