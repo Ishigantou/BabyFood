@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20121122093211) do
+ActiveRecord::Schema.define(version: 20121122115318) do
 
   create_table "categories", force: true do |t|
     t.text     "title"
@@ -26,6 +26,22 @@ ActiveRecord::Schema.define(version: 20121122093211) do
 
   add_index "categories_recipes", ["category_id", "recipe_id"], name: "index_categories_recipes_on_category_id_and_recipe_id"
   add_index "categories_recipes", ["recipe_id", "category_id"], name: "index_categories_recipes_on_recipe_id_and_category_id"
+
+  create_table "menus", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "staple_recipe_id"
+    t.integer  "main_recipe_id"
+    t.integer  "side_recipe_id"
+    t.text     "comment"
+    t.text     "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "menus", ["main_recipe_id"], name: "index_menus_on_main_recipe_id"
+  add_index "menus", ["side_recipe_id"], name: "index_menus_on_side_recipe_id"
+  add_index "menus", ["staple_recipe_id"], name: "index_menus_on_staple_recipe_id"
+  add_index "menus", ["user_id"], name: "index_menus_on_user_id"
 
   create_table "recipes", force: true do |t|
     t.text     "title"

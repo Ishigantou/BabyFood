@@ -3,6 +3,7 @@
 # coding: utf-8
 class Recipe < ActiveRecord::Base
   has_and_belongs_to_many :categories
+  has_many :recipes
 
   scope :category, -> cat {
     if cat.is_a? ActiveRecord::Relation or cat.is_a? Array

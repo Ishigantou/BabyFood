@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @menu.user
+%p
+  %b Staple recipe:
+  = @menu.staple_recipe
+%p
+  %b Main recipe:
+  = @menu.main_recipe
+%p
+  %b Side recipe:
+  = @menu.side_recipe
+%p
+  %b Comment:
+  = @menu.comment
+%p
+  %b Photo:
+  = @menu.photo
+
+= link_to 'Edit', edit_menu_path(@menu)
+\|
+= link_to 'Back', menus_path

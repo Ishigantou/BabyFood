@@ -1,4 +1,6 @@
 BabyFood::Application.routes.draw do
+  resources :menus
+
   resources :categories
 
   resources :recipes
