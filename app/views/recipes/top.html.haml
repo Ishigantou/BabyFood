@@ -11,3 +11,13 @@
       = link_to recipe.url do
         = image_tag recipe.image_url
     = link_to recipe.title, recipe.url
+.row.pull-right
+  = form_for(current_user.menus.build) do |f|
+    - staple_recipe, main_recipe, side_recipe = @recipes
+    = f.hidden_field :staple_recipe_id, value: staple_recipe.id
+    = f.hidden_field :main_recipe_id, value: main_recipe.id
+    = f.hidden_field :side_recipe_id, value: side_recipe.id
+    %i.icon-comment
+    .input-append
+      = f.text_field :comment, class:'span6', placeholder: 'save recipe with comment.'
+      = f.submit 'Save', class:'btn btn-success save-button'

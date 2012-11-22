@@ -1,5 +1,9 @@
+#encoding: utf-8
+
 # coding: utf-8
 class User < ActiveRecord::Base
+  has_many :menus
+
   attr_accessor :password
   validates :name, presence: true, uniqueness: true
   validates :password, presence: {on: :create}, confirmation: true
