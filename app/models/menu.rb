@@ -27,4 +27,8 @@ class Menu < ActiveRecord::Base
   def day
     created_at.day
   end
+
+  def today?
+    created_at.to_date == Date.today
+  end
 end
