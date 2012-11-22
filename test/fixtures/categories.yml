@@ -1,14 +1,4 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-離乳食 初期（5〜6ヶ月）:
-  title: 離乳食 初期（5〜6ヶ月）
-
-離乳食 中期（7〜8ヶ月）:
-  title: 離乳食 中期（7〜8ヶ月）
-
-離乳食 後期（9〜11ヶ月）:
-  title: 離乳食 後期（9〜11ヶ月）
-
 初めての離乳食:
   title: 初めての離乳食
 
