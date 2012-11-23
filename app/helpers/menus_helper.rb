@@ -21,7 +21,7 @@ module MenusHelper
     # args is an argument hash containing :event, :day, and :options
     calendar event_calendar_opts do |args|
       event, day = args[:event], args[:day]
-      html = %(<a href="/events/#{event.id}" title="#{h(event.comment)}">)
+      html = %(<a href="#{event.day_path}" title="#{h(event.comment)}">)
       #html << display_event_time(event, day)
       html << %(#{h(event.comment)}</a>)
       html
