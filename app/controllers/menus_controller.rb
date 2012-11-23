@@ -55,6 +55,6 @@ class MenusController < ApplicationController
     # Use this method to whitelist the permissible parameters. Example: params.require(:person).permit(:name, :age)
     # Also, you can specialize this method with per-user checking of permissible attributes.
     def menu_params
-      params.require(:menu).permit(:staple_recipe_id, :main_recipe_id, :side_recipe_id, :comment, :photo)
+      params.require(:menu).permit(:staple_recipe_id, :main_recipe_id, :side_recipe_id, :comment, :photo, :start_at, :end_at)
     end
 end
