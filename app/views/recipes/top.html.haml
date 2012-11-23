@@ -18,6 +18,8 @@
       = f.hidden_field :staple_recipe_id, value: staple_recipe.id
       = f.hidden_field :main_recipe_id, value: main_recipe.id
       = f.hidden_field :side_recipe_id, value: side_recipe.id
+      = f.hidden_field :start_at, value: Time.now
+      = f.hidden_field :end_at,   value: Time.now
       %i.icon-comment
       .input-append
         = f.text_field :comment, class:'span6', placeholder: 'save this menu with comment.'
