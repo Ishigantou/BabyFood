@@ -7,10 +7,11 @@
     Refresh
 .row
   = content_tag_for(:div, @recipes, class: 'span4') do |recipe|
-    .div(style='height:180px; overflow:hidden')
-      = link_to recipe.url do
+    = link_to recipe.url, target: '_blank' do
+      #div(style='height:180px; overflow:hidden')
         = image_tag recipe.image_url
-    = link_to recipe.title, recipe.url
+      = recipe.title
+
 - if current_user
   .row.pull-right
     = form_for(current_user.menus.build) do |f|
