@@ -120,6 +120,7 @@ GEM
       sass (~> 3.1)
     daemons (1.1.8)
     erubis (2.7.0)
+    event-calendar (2.3.3)
     eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -200,6 +201,7 @@ DEPENDENCIES
   bootstrap-sass!
   coffee-rails!
   compass
+  event-calendar
   haml-rails!
   html2haml
   journey!

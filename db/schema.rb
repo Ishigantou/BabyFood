@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20121122115318) do
+ActiveRecord::Schema.define(version: 20121123030549) do
 
   create_table "categories", force: true do |t|
     t.text     "title"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20121122115318) do
     t.text     "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_at"
+    t.datetime "end_at"
   end
 
   add_index "menus", ["main_recipe_id"], name: "index_menus_on_main_recipe_id"

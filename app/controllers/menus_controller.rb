@@ -4,12 +4,12 @@ class MenusController < ApplicationController
   # GET /menus
   # GET /menus.json
   def index
-    @menus = Menu.all
+    @month = (params[:month] || (Time.zone || Time).now.month).to_i
+    @year = (params[:year] || (Time.zone || Time).now.year).to_i
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @menus }
-    end
+    @shown_month = Date.civil(@year, @month)
+
+    @event_strips = Menu.event_strips_for_month(@shown_month)
   end
 
   # GET /menus/:year/:month/:day

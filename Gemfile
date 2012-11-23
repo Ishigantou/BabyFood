@@ -12,6 +12,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'compass'
 gem 'haml-rails', github: 'itzki/haml-rails' #fixed scaffold in Rails4
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+gem 'event-calendar', :require => 'event_calendar'
 
 # Gems used only for assets and not required
 # in production environments by default.
