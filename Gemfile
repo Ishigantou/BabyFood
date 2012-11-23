@@ -53,6 +53,17 @@ group :development do
   gem 'rails-erd'
   gem 'html2haml'
   gem 'ruby_parser'
+
+  gem 'rb-fsevent', :require => false
+end
+
+group :development, :test do
+  gem 'fabrication', github: 'paulelliott/fabrication', branch: 'activerecord4'
+end
+
+group :test do
+  gem 'guard-minitest'
+  gem 'ruby-prof'
 end
 
 group :production do
