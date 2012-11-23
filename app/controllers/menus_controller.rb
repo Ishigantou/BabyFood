@@ -9,7 +9,7 @@ class MenusController < ApplicationController
 
     @shown_month = Date.civil(@year, @month)
 
-    @event_strips = Menu.event_strips_for_month(@shown_month)
+    @event_strips = Menu.event_strips_for_month(@shown_month, 0, conditions: { user_id: current_user.id })
   end
 
   # GET /menus/:year/:month/:day
