@@ -4,7 +4,7 @@ class Menu < ActiveRecord::Base
   belongs_to :main_recipe, class_name: 'Recipe'
   belongs_to :side_recipe, class_name: 'Recipe'
 
-  has_event_calendar
+  has_event_calendar :start_at_field  => 'created_at', :end_at_field => 'created_at'
 
   scope :day, -> date {
     where(created_at: date.beginning_of_day..date.end_of_day)
